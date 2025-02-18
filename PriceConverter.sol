@@ -33,4 +33,12 @@ library PriceConverter {
         // the actual ETH/USD conversion rate, after adjusting the extra 0s.
         return ethAmountInUsd;
     }
+
+function convertUsdToEth(uint256 _ethAmountInUsd) internal view returns (uint256) {
+        uint256 ethPrice = getPrice() / 1e18;
+        uint256 ethAmountInWei = (_ethAmountInUsd * 1e18 ) / ethPrice ;
+
+        return ethAmountInWei;
+    }
+    
 }
